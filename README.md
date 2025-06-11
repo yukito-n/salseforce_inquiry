@@ -16,8 +16,8 @@ The project is structured as a standard Salesforce DX project under `force-app/m
 ### Salesforce DX Configuration
 
 Follow these steps to set up a scratch org and push the source code. This assumes
-that the [Salesforce CLI](https://developer.salesforce.com/tools/sfdxcli) is
-installed on your machine.
+that the [Salesforce CLI](https://developer.salesforce.com/tools/sfdxcli) (or the
+new `sf` command line) is installed on your machine.
 
 1. **Authenticate with your Dev Hub** (only required once):
    ```bash
@@ -25,7 +25,8 @@ installed on your machine.
    ```
    This command opens a browser window where you log in to the org that you want
    to use as your Dev Hub.
-2. **Create a scratch org** using the project configuration:
+2. **Create a scratch org** using the project configuration provided in
+   `config/project-scratch-def.json`:
    ```bash
    sfdx force:org:create -s -f config/project-scratch-def.json -a ScratchOrg
    ```
@@ -34,6 +35,8 @@ installed on your machine.
 3. **Push the source to the scratch org**:
    ```bash
    sfdx force:source:push -u ScratchOrg
+   # or with the new CLI
+   sf project deploy start --source-dir force-app --target-org ScratchOrg
    ```
 4. **Assign permissions** if your project includes permission sets:
    ```bash
@@ -45,10 +48,13 @@ installed on your machine.
    ```
 
 To deploy to a non-scratch org, replace `force:source:push` with
-`force:source:deploy` and specify the target username or alias:
+`force:source:deploy` (or the `sf project deploy start` command) and specify the target username or alias:
 
 ```bash
+# using the legacy sfdx CLI
 sfdx force:source:deploy -p force-app -u MySandbox
+# or using the new sf CLI
+sf project deploy start --source-dir force-app --target-org MySandbox
 ```
 
 ### Object Configuration
