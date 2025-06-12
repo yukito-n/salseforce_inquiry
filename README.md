@@ -82,6 +82,36 @@ sf project deploy start --source-dir force-app --target-org <your-org>
 
 Once deployed, open your Lightning app and verify that the components appear on the pages configured above.
 
+### Post-Deployment Testing
+
+After deployment, verify that each component behaves as expected in the target org:
+
+1. **Create a Test Case**
+   - Navigate to the page containing the `NewCaseForm` component.
+   - Submit a new case and confirm that a success message appears.
+   - Check that the record is created with the correct values.
+2. **Validate List and Detail Views**
+   - Open the `CaseListView` and ensure that the newly created case appears in the table with the correct fields.
+   - Click a case to open the `CaseDetail` component and edit a field using inline editing. Save and confirm the toast notification.
+3. **Check the Kanban Board**
+   - Navigate to the `CaseKanban` component and verify that cases are grouped by status. Drag a card to a different column and refresh the list to confirm the status update.
+4. **Run Apex Tests (if any)**
+   - Execute `sf apex run test --target-org <your-org>` to run automated tests included in the project. Review the results for failures.
+
+Document the results of these checks so that you can repeat them when deploying to additional environments.
+
+### Migrating to Production
+
+When you are ready to move the system to a production org, follow one of these approaches:
+
+1. **Change Set Promotion**
+   - In your sandbox, create an outbound change set that includes the metadata under `force-app/main/default`.
+   - Upload the change set to production and validate the deployment. Fix any issues reported during validation, then deploy.
+2. **Unlocked Package or Metadata API**
+   - Create an unlocked package using the Salesforce CLI or package.xml with the Metadata API. Install the package in a staging sandbox first to confirm that all components deploy correctly before installing in production.
+
+Always test in a full or partial copy sandbox before deploying to production to ensure that data-specific issues do not cause errors.
+
 ### When Salesforce DX Is Unavailable
 
 If the Salesforce CLI is not an option, you can deploy the metadata using one of the following methods:
