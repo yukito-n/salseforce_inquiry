@@ -1,0 +1,15 @@
+<aura:component controller="CaseKanbanController" implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:attribute name="groups" type="List" />
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <div class="slds-grid slds-wrap">
+        <aura:iteration items="{!v.groups}" var="group">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-4">
+                <lightning:card title="{!group.status}">
+                    <aura:iteration items="{!group.records}" var="caseRec">
+                        <div class="kanban-card">{!caseRec.Subject}</div>
+                    </aura:iteration>
+                </lightning:card>
+            </div>
+        </aura:iteration>
+    </div>
+</aura:component>
