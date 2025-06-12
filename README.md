@@ -30,6 +30,9 @@ Follow these steps to set up a scratch org and deploy the source using the [Sale
    ```
    The `--set-default` flag sets this org as the default, and `--alias` assigns it the alias
    `ScratchOrg` for easy reference.
+   If the command fails because of an invalid feature, edit `config/project-scratch-def.json`
+   and adjust the `features` array (which is empty by default) to include only
+   valid feature names.
 3. **Push the source to the scratch org**:
    ```bash
    sf project deploy start --source-dir force-app --target-org ScratchOrg
