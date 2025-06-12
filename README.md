@@ -15,45 +15,38 @@ The project is structured as a standard Salesforce DX project under `force-app/m
 
 ### Salesforce DX Configuration
 
-Follow these steps to set up a scratch org and push the source code. This assumes
-that the [Salesforce CLI](https://developer.salesforce.com/tools/sfdxcli) (or the
-new `sf` command line) is installed on your machine.
+Follow these steps to set up a scratch org and deploy the source using the [Salesforce CLI](https://developer.salesforce.com/tools/sfdxcli). The commands below use the `sf` CLI.
 
 1. **Authenticate with your Dev Hub** (only required once):
    ```bash
-   sfdx auth:web:login -d -a DevHub
+   sf org login web --set-default-dev-hub --alias DevHub
    ```
    This command opens a browser window where you log in to the org that you want
    to use as your Dev Hub.
 2. **Create a scratch org** using the project configuration provided in
    `config/project-scratch-def.json`:
    ```bash
-   sfdx force:org:create -s -f config/project-scratch-def.json -a ScratchOrg
+   sf org create scratch --definition-file config/project-scratch-def.json --set-default --alias ScratchOrg
    ```
-   The `-s` flag sets this org as the default, and `-a` assigns it the alias
+   The `--set-default` flag sets this org as the default, and `--alias` assigns it the alias
    `ScratchOrg` for easy reference.
 3. **Push the source to the scratch org**:
    ```bash
-   sfdx force:source:push -u ScratchOrg
-   # or with the new CLI
    sf project deploy start --source-dir force-app --target-org ScratchOrg
    ```
 4. **Assign permissions** if your project includes permission sets:
    ```bash
-   sfdx force:user:permset:assign -n Inquiry_App -u ScratchOrg
+   sf org assign permset --name Inquiry_App --target-org ScratchOrg
    ```
 5. **Open the scratch org** to verify the components:
    ```bash
-   sfdx force:org:open -u ScratchOrg
+   sf org open --target-org ScratchOrg
    ```
 
 To deploy to a non-scratch org, replace `force:source:push` with
 `force:source:deploy` (or the `sf project deploy start` command) and specify the target username or alias:
 
 ```bash
-# using the legacy sfdx CLI
-sfdx force:source:deploy -p force-app -u MySandbox
-# or using the new sf CLI
 sf project deploy start --source-dir force-app --target-org MySandbox
 ```
 
@@ -79,7 +72,7 @@ sf project deploy start --source-dir force-app --target-org MySandbox
 After configuring your org, deploy the source:
 
 ```bash
-sfdx force:source:deploy -p force-app
+sf project deploy start --source-dir force-app --target-org <your-org>
 ```
 
 Once deployed, open your Lightning app and verify that the components appear on the pages configured above.
