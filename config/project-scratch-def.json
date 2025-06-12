@@ -1,7 +1,7 @@
 {
   "orgName": "Inquiry Management Scratch Org",
   "edition": "Developer",
-  "features": ["Cases"],
+  "features": [],
   "settings": {
     "lightningExperienceSettings": {
       "enableS1DesktopEnabled": true
