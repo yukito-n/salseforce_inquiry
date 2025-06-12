@@ -72,7 +72,9 @@ sf project deploy start --source-dir force-app --target-org MySandbox
 
 ### Deployment Steps
 
-After configuring your org, deploy the source:
+After configuring your org, deploy the source. Replace `<your-org>` with the alias
+or username of the org you want to deploy to (run `sf org list` to see available
+orgs):
 
 ```bash
 sf project deploy start --source-dir force-app --target-org <your-org>
