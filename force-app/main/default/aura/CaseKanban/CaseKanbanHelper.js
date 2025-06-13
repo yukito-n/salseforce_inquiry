@@ -17,5 +17,27 @@
             }
         });
         $A.enqueueAction(action);
+    },
+
+    updateCaseStatus : function(component, caseId, status) {
+        var action = component.get("c.updateStatus");
+        action.setParams({ caseId: caseId, status: status });
+        action.setCallback(this, function(response) {
+            if (response.getState() === "SUCCESS") {
+                this.loadCases(component);
+                this.showToast('更新完了', 'ステータスを更新しました', 'success');
+            } else {
+                this.showToast('エラー', '更新できませんでした', 'error');
+            }
+        });
+        $A.enqueueAction(action);
+    },
+
+    showToast : function(title, message, type) {
+        var toastEvent = $A.get("e.force:showToast");
+        if (toastEvent) {
+            toastEvent.setParams({ title: title, message: message, type: type });
+            toastEvent.fire();
+        }
     }
 })

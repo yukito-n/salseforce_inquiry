@@ -5,9 +5,13 @@
         <aura:iteration items="{!v.groups}" var="group">
             <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-4">
                 <lightning:card title="{!group.status}">
-                    <aura:iteration items="{!group.records}" var="caseRec">
-                        <div class="kanban-card">{!caseRec.Subject}</div>
-                    </aura:iteration>
+                    <div class="kanban-column" data-status="{!group.status}" ondragover="{!c.allowDrop}" ondrop="{!c.handleDrop}">
+                        <aura:iteration items="{!group.records}" var="caseRec">
+                            <div class="kanban-card" draggable="true" data-id="{!caseRec.Id}" ondragstart="{!c.handleDrag}">
+                                {!caseRec.Subject}
+                            </div>
+                        </aura:iteration>
+                    </div>
                 </lightning:card>
             </div>
         </aura:iteration>

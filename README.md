@@ -7,7 +7,7 @@ This repository contains a sample Salesforce DX project that demonstrates basic 
 - **NewCaseForm** - Create a new Case record using Lightning Data Service.
 - **CaseListView** - Display a table of cases with row actions for "参照", "編集", and "削除". Includes a "新規登録" button that opens `NewCaseForm` in a modal.
 - **CaseDetail** - Edit Case fields inline on the detail page.
-- **CaseKanban** - Visualize cases grouped by status.
+- **CaseKanban** - Visualize cases grouped by status and drag cards between columns to update the status.
 
 The project is structured as a standard Salesforce DX project under `force-app/main/default`.
 All component labels and picklist options are displayed in **Japanese** to provide a localized user experience.
