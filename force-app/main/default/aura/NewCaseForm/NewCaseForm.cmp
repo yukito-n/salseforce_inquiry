@@ -1,4 +1,5 @@
 <aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:registerEvent name="caseCreated" type="c:CaseCreatedEvent"/>
     <lightning:recordEditForm aura:id="caseForm"
                               objectApiName="Case"
                               onsuccess="{!c.handleSuccess}">

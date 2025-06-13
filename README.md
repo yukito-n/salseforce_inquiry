@@ -5,7 +5,7 @@ This repository contains a sample Salesforce DX project that demonstrates basic 
 ## Components
 
 - **NewCaseForm** - Create a new Case record using Lightning Data Service.
-- **CaseListView** - Display a table of cases.
+- **CaseListView** - Display a table of cases and provide a "新規登録" button that opens `NewCaseForm` in a modal.
 - **CaseDetail** - Edit Case fields inline on the detail page.
 - **CaseKanban** - Visualize cases grouped by status.
 
@@ -54,7 +54,7 @@ After the browser opens, you can test the components and configure the pages:
 1. From the **App Launcher**, search for "Cases" and open the standard **Service** app (or create a new Lightning App).
 2. In **Lightning App Builder**, create a new **App Page** or edit the **Case Record Page**. Place the Aura components (`NewCaseForm`, `CaseListView`, `CaseDetail`, `CaseKanban`) onto the layout.
 3. **Activate** the page so that it is available in the org. Specify which apps, record types, or profiles should see the page.
-4. Navigate back to the app and confirm that each component loads correctly. Use the **NewCaseForm** to create a sample case and verify it appears in the list view and Kanban board.
+4. Navigate back to the app and confirm that each component loads correctly. Click the **新規登録** button in the list view to open `NewCaseForm` as a modal and create a sample case. Verify that it appears in the list view and Kanban board.
 5. Experiment with status updates, drag-and-drop on the Kanban board, and inline edits to familiarize yourself with the workflow.
 
 To deploy to a non-scratch org, replace `force:source:push` with
@@ -98,7 +98,7 @@ Once deployed, open your Lightning app and verify that the components appear on 
 After deployment, verify that each component behaves as expected in the target org:
 
 1. **Create a Test Case**
-   - Navigate to the page containing the `NewCaseForm` component.
+   - Open the page with the `CaseListView` component and click **新規登録** to launch the modal form.
    - Submit a new case and confirm that a success message appears.
    - Check that the record is created with the correct values.
 2. **Validate List and Detail Views**
