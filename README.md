@@ -43,9 +43,19 @@ Follow these steps to set up a scratch org and deploy the source using the [Sale
    sf org assign permset --name Inquiry_App --target-org ScratchOrg
    ```
 5. **Open the scratch org** to verify the components:
-   ```bash
-   sf org open --target-org ScratchOrg
-   ```
+    ```bash
+    sf org open --target-org ScratchOrg
+    ```
+
+### Using the Scratch Org
+
+After the browser opens, you can test the components and configure the pages:
+
+1. From the **App Launcher**, search for "Cases" and open the standard **Service** app (or create a new Lightning App).
+2. In **Lightning App Builder**, create a new **App Page** or edit the **Case Record Page**. Place the Aura components (`NewCaseForm`, `CaseListView`, `CaseDetail`, `CaseKanban`) onto the layout.
+3. **Activate** the page so that it is available in the org. Specify which apps, record types, or profiles should see the page.
+4. Navigate back to the app and confirm that each component loads correctly. Use the **NewCaseForm** to create a sample case and verify it appears in the list view and Kanban board.
+5. Experiment with status updates, drag-and-drop on the Kanban board, and inline edits to familiarize yourself with the workflow.
 
 To deploy to a non-scratch org, replace `force:source:push` with
 `force:source:deploy` (or the `sf project deploy start` command) and specify the target username or alias:
