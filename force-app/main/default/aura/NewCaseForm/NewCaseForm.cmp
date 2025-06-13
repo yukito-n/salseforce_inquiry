@@ -26,10 +26,10 @@
                 <lightning:inputField fieldName="ContactId"/>
             </div>
             <div class="slds-col slds-size_1-of-1">
-                <lightning:fileUpload label="Attach Files" multiple="true" recordId="{!v.recordId}" />
+                <lightning:fileUpload label="ファイルを添付" multiple="true" recordId="{!v.recordId}" />
             </div>
             <div class="slds-col slds-size_1-of-1">
-                <lightning:button variant="brand" type="submit" label="Create Case"/>
+                <lightning:button variant="brand" type="submit" label="ケースを作成"/>
             </div>
         </div>
     </lightning:recordEditForm>

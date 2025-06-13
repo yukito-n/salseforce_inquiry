@@ -1,6 +1,6 @@
 ({
     handleSuccess : function(component, event, helper) {
         var payload = event.getParams().response;
-        helper.showToast('Success', 'Case created: ' + payload.id, 'success');
+        helper.showToast('成功', 'ケースが作成されました: ' + payload.id, 'success');
     }
 })

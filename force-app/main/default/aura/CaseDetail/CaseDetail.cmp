@@ -18,7 +18,7 @@
                 <lightning:inputField fieldName="Type"/>
             </div>
             <div class="slds-col slds-size_1-of-1">
-                <lightning:button variant="brand" type="submit" label="Save"/>
+                <lightning:button variant="brand" type="submit" label="保存"/>
             </div>
         </div>
     </lightning:recordEditForm>

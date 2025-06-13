@@ -1,5 +1,5 @@
 ({
     handleSuccess : function(component, event, helper) {
-        helper.showToast('Saved', 'Case updated successfully', 'success');
+        helper.showToast('保存完了', 'ケースが更新されました', 'success');
     }
 })

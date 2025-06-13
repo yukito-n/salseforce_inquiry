@@ -10,6 +10,7 @@ This repository contains a sample Salesforce DX project that demonstrates basic 
 - **CaseKanban** - Visualize cases grouped by status.
 
 The project is structured as a standard Salesforce DX project under `force-app/main/default`.
+All component labels and picklist options are displayed in **Japanese** to provide a localized user experience.
 
 ## Setup
 
@@ -59,8 +60,8 @@ sf project deploy start --source-dir force-app --target-org MySandbox
    - Ensure the standard fields `Subject`, `Status`, `Priority`, `Origin`, `Type`, `AccountId`, and `ContactId` are on the page layout.
    - Create a custom field `SLA_Due_Date__c` (Date) to track due dates.
 2. **Picklist Values**
-   - `Status`: add values *New*, *In Progress*, *Resolved*, *Closed*.
-   - `Priority`: use values *High*, *Medium*, *Low*.
+   - `Status`: create Japanese values such as *新規*, *進行中*, *解決済み*, *完了*.
+   - `Priority`: use values *高*, *中*, *低*.
 3. **Record Types** (optional)
    - Create record types for different inquiry types such as *Product Bug*, *How-to Question*, etc.
 4. **Page Layout**
