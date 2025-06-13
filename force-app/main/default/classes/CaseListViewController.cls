@@ -24,4 +24,10 @@ public with sharing class CaseListViewController {
             OwnerName = c.Owner.Name;
         }
     }
+
+    @AuraEnabled
+    public static void deleteCase(Id caseId) {
+        Case c = [SELECT Id FROM Case WHERE Id = :caseId LIMIT 1];
+        delete c;
+    }
 }

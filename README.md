@@ -5,7 +5,7 @@ This repository contains a sample Salesforce DX project that demonstrates basic 
 ## Components
 
 - **NewCaseForm** - Create a new Case record using Lightning Data Service.
-- **CaseListView** - Display a table of cases and provide a "新規登録" button that opens `NewCaseForm` in a modal.
+- **CaseListView** - Display a table of cases with row actions for "参照", "編集", and "削除". Includes a "新規登録" button that opens `NewCaseForm` in a modal.
 - **CaseDetail** - Edit Case fields inline on the detail page.
 - **CaseKanban** - Visualize cases grouped by status.
 
@@ -103,6 +103,7 @@ After deployment, verify that each component behaves as expected in the target o
    - Check that the record is created with the correct values.
 2. **Validate List and Detail Views**
    - Open the `CaseListView` and ensure that the newly created case appears in the table with the correct fields.
+   - Use the row action buttons (参照・編集・削除) to open, modify, and remove the record.
    - Click a case to open the `CaseDetail` component and edit a field using inline editing. Save and confirm the toast notification.
 3. **Check the Kanban Board**
    - Navigate to the `CaseKanban` component and verify that cases are grouped by status. Drag a card to a different column and refresh the list to confirm the status update.

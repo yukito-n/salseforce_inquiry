@@ -4,6 +4,7 @@
     <aura:attribute name="isModalOpen" type="Boolean" default="false" />
     <aura:handler name="init" value="{!this}" action="{!c.init}" />
     <aura:handler name="caseCreated" event="c:CaseCreatedEvent" action="{!c.handleCaseCreated}" />
+    <lightning:navigation aura:id="navService" />
     <lightning:card title="問合せ一覧">
         <aura:set attribute="actions">
             <lightning:button label="新規登録" variant="brand" onclick="{!c.openModal}" />
@@ -11,7 +12,8 @@
         <lightning:dataTable data="{!v.cases}"
                              columns="{!v.columns}"
                              keyField="Id"
-                             hideCheckboxColumn="true"/>
+                             hideCheckboxColumn="true"
+                             onrowaction="{!c.handleRowAction}"/>
     </lightning:card>
 
     <aura:if isTrue="{!v.isModalOpen}">
