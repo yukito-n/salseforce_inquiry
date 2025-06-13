@@ -1,0 +1,25 @@
+<aura:component implements="force:hasRecordId,flexipage:availableForRecordHome" access="global">
+    <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Case" onsuccess="{!c.handleSuccess}">
+        <lightning:messages />
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1">
+                <lightning:inputField fieldName="Subject"/>
+            </div>
+            <div class="slds-col slds-size_1-of-1">
+                <lightning:inputField fieldName="Status"/>
+            </div>
+            <div class="slds-col slds-size_1-of-1">
+                <lightning:inputField fieldName="Priority"/>
+            </div>
+            <div class="slds-col slds-size_1-of-1">
+                <lightning:inputField fieldName="Origin"/>
+            </div>
+            <div class="slds-col slds-size_1-of-1">
+                <lightning:inputField fieldName="Type"/>
+            </div>
+            <div class="slds-col slds-size_1-of-1">
+                <lightning:button variant="brand" type="submit" label="保存"/>
+            </div>
+        </div>
+    </lightning:recordEditForm>
+</aura:component>
