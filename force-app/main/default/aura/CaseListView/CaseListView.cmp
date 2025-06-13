@@ -3,7 +3,7 @@
     <aura:attribute name="columns" type="List" />
     <aura:attribute name="isModalOpen" type="Boolean" default="false" />
     <aura:handler name="init" value="{!this}" action="{!c.init}" />
-    <aura:handler event="c:CaseCreatedEvent" action="{!c.handleCaseCreated}" />
+    <aura:handler name="caseCreated" event="c:CaseCreatedEvent" action="{!c.handleCaseCreated}" />
     <lightning:card title="問合せ一覧">
         <aura:set attribute="actions">
             <lightning:button label="新規登録" variant="brand" onclick="{!c.openModal}" />
