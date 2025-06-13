@@ -1,0 +1,36 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    <lightning:recordEditForm aura:id="caseForm"
+                              objectApiName="Case"
+                              onsuccess="{!c.handleSuccess}">
+        <lightning:messages />
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1">
+                <lightning:inputField fieldName="Subject" required="true"/>
+            </div>
+            <div class="slds-col slds-size_1-of-1">
+                <lightning:inputField fieldName="Status"/>
+            </div>
+            <div class="slds-col slds-size_1-of-1">
+                <lightning:inputField fieldName="Priority"/>
+            </div>
+            <div class="slds-col slds-size_1-of-1">
+                <lightning:inputField fieldName="Origin"/>
+            </div>
+            <div class="slds-col slds-size_1-of-1">
+                <lightning:inputField fieldName="Type"/>
+            </div>
+            <div class="slds-col slds-size_1-of-1">
+                <lightning:inputField fieldName="AccountId"/>
+            </div>
+            <div class="slds-col slds-size_1-of-1">
+                <lightning:inputField fieldName="ContactId"/>
+            </div>
+            <div class="slds-col slds-size_1-of-1">
+                <lightning:fileUpload label="ファイルを添付" multiple="true" recordId="{!v.recordId}" />
+            </div>
+            <div class="slds-col slds-size_1-of-1">
+                <lightning:button variant="brand" type="submit" label="ケースを作成"/>
+            </div>
+        </div>
+    </lightning:recordEditForm>
+</aura:component>

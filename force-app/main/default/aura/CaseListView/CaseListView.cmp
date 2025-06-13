@@ -1,0 +1,11 @@
+<aura:component controller="CaseListViewController" implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:attribute name="cases" type="Case[]" />
+    <aura:attribute name="columns" type="List" />
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <lightning:card title="問合せ一覧">
+        <lightning:dataTable data="{!v.cases}"
+                             columns="{!v.columns}"
+                             keyField="Id"
+                             hideCheckboxColumn="true"/>
+    </lightning:card>
+</aura:component>
